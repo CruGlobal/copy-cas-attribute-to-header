@@ -21,7 +21,9 @@ Build this repo (`mvn install`), and add this dependency to your pom:
 ```
 
 Not using maven?
-Grab the jar from github and get it into your WEB-INF/lib directory.
+Grab the jar from
+[github](https://github.com/CruGlobal/copy-user-to-header/releases/tag/1)
+and get it into your WEB-INF/lib directory.
 
 Add this filter to your web.xml:
 ```xml
