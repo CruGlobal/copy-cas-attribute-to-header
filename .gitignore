@@ -1,0 +1,12 @@
+# Eclipse files
+.classpath
+.project
+.settings/
+.wtpmodules
+
+# IntelliJ files
+.idea/
+*.iml
+
+# maven target directory
+target/

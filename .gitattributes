@@ -1,0 +1,7 @@
+*.css        text
+*.java       text diff=java
+*.js         text
+*.jsp        text
+*.properties text
+*.vm         text
+*.xml        text
