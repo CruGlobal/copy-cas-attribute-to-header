@@ -2,12 +2,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.cru.userheader</groupId>
-  <artifactId>copy-user-to-header</artifactId>
+  <groupId>org.cru.casheader</groupId>
+  <artifactId>copy-cas-attribute-to-header</artifactId>
   <version>1</version>
   <packaging>jar</packaging>
 
-  <name>copy-user-to-header</name>
+  <name>copy-cas-attribute-to-header</name>
   <url>http://maven.apache.org</url>
 
   <properties>
