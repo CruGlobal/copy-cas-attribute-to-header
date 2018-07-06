@@ -8,7 +8,11 @@
   <packaging>jar</packaging>
 
   <name>copy-cas-attribute-to-header</name>
-  <url>http://maven.apache.org</url>
+  <description>
+    A small simple servlet filter that copies attributes from the request's principal
+    to configurable set of headers.
+  </description>
+  <url>https://github.com/CruGlobal/copy-cas-attribute-to-header</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

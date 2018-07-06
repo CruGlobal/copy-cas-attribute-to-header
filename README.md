@@ -1,11 +1,16 @@
 # What?
 
-A small simple servlet filter that copies the request's "remote user" value to a configurable header.
+A small simple servlet filter that copies attributes from the request's principal
+to configurable set of headers.
 
 # Why?
 
-Some tools (like Siebel) demand a header be populated with the user's username,
-when integrating with an external authentication mechanism.
+Some tools demand one or more headers be populated with certain user attributes
+when integrating with an external authentication mechanism, like CAS.
+The CAS client provides an AttributePrincipal that can be used to look up various user attributes,
+but these are not stored in headers by default.
+This filter makes (some of) those attributes available as headers.
+
 
 # How?
 
@@ -14,15 +19,15 @@ Build this repo (`mvn install`), and add this dependency to your pom:
 
 ```xml
   <dependency>
-    <groupId>org.cru.userheader</groupId>
-    <artifactId>copy-user-to-header</artifactId>
+    <groupId>org.cru.casheader</groupId>
+    <artifactId>copy-cas-attribute-to-header</artifactId>
     <version>1</version>
   </dependency>
 ```
 
 Not using maven?
 Grab the jar from
-[github](https://github.com/CruGlobal/copy-user-to-header/releases/tag/1)
+[github](https://github.com/CruGlobal/copy-cas-attribute-to-header/releases/tag/1)
 and get it into your WEB-INF/lib directory.
 
 Add this filter to your web.xml:
@@ -55,5 +60,5 @@ Add this filter to your web.xml:
 
 # Misc
 
-This was built to integrate Cru's siebel instance with our CAS server.
+This was built to integrate Cru's peoplesoft instances with our CAS server.
 It's a quick glue project, and will probably never see a version 2 or deployment to maven central.
