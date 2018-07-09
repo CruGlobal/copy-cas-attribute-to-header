@@ -35,30 +35,40 @@ Add this filter to your web.xml:
   <filter>
 
      <!-- adapt as you'd like -->
-    <filter-name>Copy User to Header Filter</filter-name>
+    <filter-name>Copy Cas Attributes to Headers Filter</filter-name>
 
-    <filter-class>org.cru.userheader.CopyUserToHeaderFilter</filter-class>
+    <filter-class>org.cru.userheader.CopyCasAttributesToHeadersFilter</filter-class>
 
-    <!-- optional; default is 'X-Remote-User' -->
+    <!--
+      Optional; default behavior will map all attributes,
+      mapping each attribute to a header of the same name prefixed by "CAS_".
+     -->
     <init-param>
-        <param-name>headerName</param-name>
+        <param-name>attributeMapping</param-name>
 
-        <!-- use whatever header name your application expects -->
-        <param-value>Some-User-Header-Name</param-value>
+        <!-- A whitespace-separated list of attribute=header mappings -->
+        <param-value>
+          someCasAttribute=A-Specific-Header-Used-By-Your-Tool
+          someOtherAttribute=Some-Other-Header
+        </param-value>
     </init-param>
   </filter>
 
   <filter-mapping>
       <!-- match the <filter-name> above -->
-      <filter-name>Copy User to Header Filter</filter-name>
+      <filter-name>Copy Cas Attributes to Headers Filter</filter-name>
       
       <!-- adapt as required; this is probably good enough for most applications -->
       <url-pattern>/*</url-pattern>
   </filter-mapping>
 ```
 
+Any Collection attributes will be converted to multiple headers.
+Any non-String attributes will be converted to Strings using their `toString()` method.
 
+Note: if an attribute mapping is not specified,
+the header names will not be case-insensitive, as header names often are expected to be.
 # Misc
 
 This was built to integrate Cru's peoplesoft instances with our CAS server.
-It's a quick glue project, and will probably never see a version 2 or deployment to maven central.
+It's a quick glue project, and will probably never see a deployment to maven central.
